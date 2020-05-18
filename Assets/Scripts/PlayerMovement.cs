@@ -48,12 +48,13 @@ public class PlayerMovement : PlayerBase
         if (infront)
         {
             SetOrientation(direction.ToOpposite());
-            //rigidbody.velocity = Quaternion.Euler(0, 0, 90) * rigidbody.velocity;
+            rigidbody.velocity = InputToOrientation(xInput).ToVector() * rigidbody.velocity.magnitude;
         }
         else if (!below)
         {
             SetOrientation(direction);
             //rigidbody.velocity = Quaternion.Euler(0, 0, 90) * rigidbody.velocity;
+            rigidbody.velocity = InputToOrientation(xInput).ToVector() * rigidbody.velocity.magnitude;
         }
     }
 
