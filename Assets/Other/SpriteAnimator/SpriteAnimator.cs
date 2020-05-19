@@ -26,9 +26,9 @@ public class SpriteAnimator : MonoBehaviour
         }
     }
 
-    public void Play(SpriteAnimation ani, bool resetSame = true, SpriteAnimation aniToReturnTo = null)
+    public void Play(SpriteAnimation ani, bool resetSame = true)
     {
-        basicSA.Play(ani, resetSame, aniToReturnTo);
+        basicSA.Play(ani, resetSame);
     }
 
     public bool IsDone()
@@ -57,12 +57,11 @@ public class BasicSpriteAnimator
 {
     private SpriteAnimation animation;
     private SpriteAnimation original;
-    private SpriteAnimation returnAnimation;
 
     public SpriteAnimation Animation { get => animation; }
     public SpriteAnimation OriginalAnimation { get => original; }
 
-    public void Play(SpriteAnimation ani, bool resetSame = true, SpriteAnimation aniToReturnTo = null)
+    public void Play(SpriteAnimation ani, bool resetSame = true)
     {
         if(ani == null)
         {
@@ -74,7 +73,6 @@ public class BasicSpriteAnimator
             return;
         }
 
-        returnAnimation = aniToReturnTo;
         original = ani;
         animation = MonoBehaviour.Instantiate(ani);
     }
@@ -93,8 +91,8 @@ public class BasicSpriteAnimator
 
         if (animation.IsDone())
         {
-            animation = returnAnimation;
-            original = returnAnimation;
+            animation = null;
+            original = null;
         }
 
         return fr;

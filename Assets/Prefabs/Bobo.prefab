@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4249727969149948249}
   - component: {fileID: 2005577277779915192}
   - component: {fileID: 3663802438686099155}
+  - component: {fileID: 1823751367}
   - component: {fileID: 1823751371}
   m_Layer: 0
   m_Name: Bobo
@@ -145,8 +146,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae052409666680b44a4ae60be19073eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1823751367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4607529771662633797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191543ed5d647714397ccccb14462bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parkAnim: {fileID: 11400000, guid: dab7917a408d0244f8dafb2cd143d344, type: 2}
   driveAnim: {fileID: 11400000, guid: 105df6df8adceda4f85910777ce04280, type: 2}
   turnAnim: {fileID: 11400000, guid: 0835f7070bc3c1849a41a9caf55ffc98, type: 2}
+  duckAnim: {fileID: 11400000, guid: 919cf6e18ed0f394397589cff40fc224, type: 2}
 --- !u!114 &1823751371
 MonoBehaviour:
   m_ObjectHideFlags: 0

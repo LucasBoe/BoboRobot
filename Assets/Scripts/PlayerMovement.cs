@@ -5,11 +5,51 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 
+
+public enum PlayerOrientation
+{
+    UP,
+    RIGHT,
+    DOWN,
+    LEFT
+}
+
+public static class PlayerOrientationExtention
+{
+    public static Vector3 ToVector(this PlayerOrientation orientation)
+    {
+        switch (orientation)
+        {
+            case PlayerOrientation.UP:
+                return Vector3.up;
+            case PlayerOrientation.RIGHT:
+                return Vector3.right;
+            case PlayerOrientation.DOWN:
+                return Vector3.down;
+            case PlayerOrientation.LEFT:
+                return Vector3.left;
+        }
+
+        return Vector3.zero;
+    }
+
+    public static PlayerOrientation ToOpposite(this PlayerOrientation orientation)
+    {
+        return (PlayerOrientation)((int)(orientation + 2) % 4);
+    }
+}
+
 public class PlayerMovement : PlayerBase
 {
     [ShowNonSerializedField] float moveVelocity = 10;
+    private PlayerOrientation orientation;
 
-    [SerializeField] SpriteAnimation driveAnim, turnAnim;
+    protected override void Start()
+    {
+        base.Start();
+
+        animator.TryChangeState(PlayerState.DRIVE);
+    }
     private void FixedUpdate()
     {
         float xInput = Input.GetAxis("Horizontal");
@@ -60,11 +100,34 @@ public class PlayerMovement : PlayerBase
         }
     }
 
-    protected override void SetOrientation(PlayerOrientation _orientation = PlayerOrientation.UP)
+    protected void SetOrientation(PlayerOrientation _orientation = PlayerOrientation.UP)
     {
-        base.SetOrientation(_orientation);
+
+        orientation = _orientation;
+
+        Debug.Log("orientation set to " + orientation);
+
+        float _z = 0;
+
+        switch (orientation)
+        {
+            case PlayerOrientation.LEFT:
+                _z = 90;
+                break;
+
+            case PlayerOrientation.RIGHT:
+                _z = -90;
+                break;
+
+            case PlayerOrientation.DOWN:
+                _z = 180;
+                break;
+        }
+
+        transform.rotation = Quaternion.Euler(0, 0, _z);
+
         rigidbody.position = new Vector3(Mathf.Floor(transform.position.x), Mathf.Floor(transform.position.y), Mathf.Floor(transform.position.z)) + Vector3.one * 0.5f;
-        animator.Play(turnAnim,true,driveAnim);
+        animator.TryChangeState(PlayerState.TURN, asOverlay: true);
     }
 
     PlayerOrientation InputToOrientation (float xInput)
@@ -88,5 +151,10 @@ public class PlayerMovement : PlayerBase
         }
 
         return false;
+    }
+
+    public PlayerOrientation GetOrientation()
+    {
+        return orientation;
     }
 }
