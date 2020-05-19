@@ -8,6 +8,8 @@ using UnityEngine.Rendering;
 public class PlayerMovement : PlayerBase
 {
     [ShowNonSerializedField] float moveVelocity = 10;
+
+    [SerializeField] SpriteAnimation driveAnim, turnAnim;
     private void FixedUpdate()
     {
         float xInput = Input.GetAxis("Horizontal");
@@ -62,6 +64,7 @@ public class PlayerMovement : PlayerBase
     {
         base.SetOrientation(_orientation);
         rigidbody.position = new Vector3(Mathf.Floor(transform.position.x), Mathf.Floor(transform.position.y), Mathf.Floor(transform.position.z)) + Vector3.one * 0.5f;
+        animator.Play(turnAnim,true,driveAnim);
     }
 
     PlayerOrientation InputToOrientation (float xInput)

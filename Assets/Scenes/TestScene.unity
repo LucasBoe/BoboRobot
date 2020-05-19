@@ -4764,32 +4764,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &1823751366 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4607529771662633797, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8789163614858943408}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1823751370 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2631817317992130302, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-    type: 3}
-  m_PrefabInstance: {fileID: 8789163614858943408}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1823751371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823751366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e54841db1ebc224b88bd82537e065cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingAnimation: {fileID: 11400000, guid: 105df6df8adceda4f85910777ce04280, type: 2}
-  renderer: {fileID: 1823751370}
 --- !u!1001 &8789163614858943408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4852,60 +4826,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2005577277779915192, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2005577277779915192, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.99
-      objectReference: {fileID: 0}
-    - target: {fileID: 2005577277779915192, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.899
-      objectReference: {fileID: 0}
-    - target: {fileID: 2005577277779915192, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: -0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3663802438686099155, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249727969149948249, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249727969149948249, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_Mass
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249727969149948249, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4249727969149948249, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4607529771662633797, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
         type: 3}
       propertyPath: m_Name
       value: Bobo
-      objectReference: {fileID: 0}
-    - target: {fileID: 4607529771662633797, guid: 1721cdc66d88a8e4cbd23bd85784b1f6,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1721cdc66d88a8e4cbd23bd85784b1f6, type: 3}

@@ -39,6 +39,7 @@ public class PlayerBase : MonoBehaviour
     protected Rigidbody2D rigidbody;
     protected SpriteRenderer spriteRenderer;
     protected BoxCollider2D collider;
+    protected SpriteAnimator animator;
 
     private PlayerOrientation orientation;
     protected virtual void Start()
@@ -57,6 +58,11 @@ public class PlayerBase : MonoBehaviour
 
         if (rigidbody == null)
             Debug.LogError("No BoxCollider2D found, please add one.");
+
+        animator = GetComponent<SpriteAnimator>();
+
+        if (animator == null)
+            Debug.LogError("No SpriteAnimator found, please add one.");
     }
 
     protected virtual void SetOrientation(PlayerOrientation _orientation = PlayerOrientation.UP)
