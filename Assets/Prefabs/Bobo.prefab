@@ -161,7 +161,8 @@ MonoBehaviour:
   parkAnim: {fileID: 11400000, guid: dab7917a408d0244f8dafb2cd143d344, type: 2}
   driveAnim: {fileID: 11400000, guid: 105df6df8adceda4f85910777ce04280, type: 2}
   turnAnim: {fileID: 11400000, guid: 0835f7070bc3c1849a41a9caf55ffc98, type: 2}
-  duckAnim: {fileID: 11400000, guid: 919cf6e18ed0f394397589cff40fc224, type: 2}
+  duckDriveAnim: {fileID: 11400000, guid: 919cf6e18ed0f394397589cff40fc224, type: 2}
+  duckParkAnim: {fileID: 11400000, guid: ff15d5cb00e2f4940b0896c92140863d, type: 2}
 --- !u!114 &1823751371
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -55,14 +55,9 @@ public class PlayerMovement : PlayerBase
         float xInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
 
-        float yVelocityBefore = 0;
+        rigidbody.velocity = transform.right * xInput * moveVelocity;
 
-        if (rigidbody.velocity.y < 0 && GetOrientation() == PlayerOrientation.UP)
-            yVelocityBefore = rigidbody.velocity.y;
-
-        rigidbody.velocity = transform.right * xInput * moveVelocity + yVelocityBefore * Vector3.up;
-
-        
+        bool duck = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 
         if (xInput < 0)
             spriteRenderer.flipX = true;
@@ -73,7 +68,20 @@ public class PlayerMovement : PlayerBase
         if (xInput == 0)
         {
             rigidbody.velocity = Vector3.zero;
+
+            if (duck)
+                animator.TryChangeState(PlayerState.DUCKPARK);
+            else
+                animator.TryChangeState(PlayerState.PARK);
+
             return;
+        }
+        else
+        {
+            if (duck)
+                animator.TryChangeState(PlayerState.DUCKDRIVE);
+            else
+                animator.TryChangeState(PlayerState.DRIVE);
         }
 
         PlayerOrientation direction = InputToOrientation(xInput);
