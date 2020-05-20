@@ -10,6 +10,9 @@ public class RythmObjBase : MonoBehaviour
 
     [SerializeField] RythmObjBase before;
 
+    SpriteAnimator spriteAnimator;
+    [SerializeField] SpriteAnimation onAnim, offAnim;
+
     [Button]
     protected void TryConnect() {
 
@@ -46,6 +49,8 @@ public class RythmObjBase : MonoBehaviour
         RythmHandler.Tick += OnTick;
 
         RythmHandler.TickReceive += OnTickReceive;
+
+        spriteAnimator = GetComponent<SpriteAnimator>();
     }
 
     public bool ReceiveState() {
@@ -53,13 +58,11 @@ public class RythmObjBase : MonoBehaviour
     }
 
     protected virtual void OnTickBegin() {
-        Debug.Log("tick begin");
         last = current;
     }
 
     protected virtual void OnTickReceive()
     {
-        Debug.Log("tick receive");
 
         if (before != null)
             current = before.ReceiveState();
@@ -67,7 +70,7 @@ public class RythmObjBase : MonoBehaviour
 
     protected virtual void OnTick()
     {
-        Debug.Log("tick");
+        spriteAnimator?.Play(current ? onAnim : offAnim);
     }
 
     private void OnDrawGizmos()

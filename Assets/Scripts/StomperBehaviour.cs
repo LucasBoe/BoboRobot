@@ -3,42 +3,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StomperBehaviour : MonoBehaviour
+public class StomperBehaviour : RythmObjBase
 {
-    [SerializeField] float height;
+    [SerializeField] BoxCollider2D trigger;
 
-    BoxCollider2D boxCollider2D;
-    SpriteRenderer spriteRenderer;
-
-
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
-        boxCollider2D = GetComponent<BoxCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        base.Start();
 
-        if (boxCollider2D == null || spriteRenderer == null)
-            Debug.LogError("No BoxCollider2D or SpriteRenderer found, please add");
+        trigger = GetComponent<BoxCollider2D>();
+        trigger.enabled = false;
     }
 
-    void Update()
+    protected override void OnTick()
     {
-        if (boxCollider2D == null || spriteRenderer == null)
-            return;
+        base.OnTick();
 
-        boxCollider2D.size = new Vector2(1, height);
-        spriteRenderer.size = new Vector2(1, height);
-        boxCollider2D.offset = new Vector2(0, height / -2);
+        if (current)
+            StartCoroutine(IStomperTriggerRoutine());
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (height < 2.5f)
-            return;
+    IEnumerator IStomperTriggerRoutine() {
+        yield return new WaitForSeconds(0.33f);
+        trigger.enabled = true;
+        yield return new WaitForSeconds(0.33f);
+        trigger.enabled = false;
+    }
 
-        if (collision.collider.gameObject.CompareTag("Player"))
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.collider.gameObject);
+            Destroy(collision.gameObject);
         }
     }
 }
