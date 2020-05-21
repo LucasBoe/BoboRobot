@@ -20,10 +20,10 @@ MonoBehaviour:
     Duration: 0.1
   - Sprite: {fileID: -3735250943429348364, guid: d88127ae6df204222bf926c71e036dcd,
       type: 3}
-    Duration: 0.1
+    Duration: 0.05
   - Sprite: {fileID: -2643504954300874176, guid: d88127ae6df204222bf926c71e036dcd,
       type: 3}
-    Duration: 0.1
+    Duration: 0.05
   - Sprite: {fileID: -1909768803257045888, guid: d88127ae6df204222bf926c71e036dcd,
       type: 3}
     Duration: 0.1
@@ -32,7 +32,7 @@ MonoBehaviour:
     Duration: 0.1
   - Sprite: {fileID: 5205113663364083393, guid: d88127ae6df204222bf926c71e036dcd,
       type: 3}
-    Duration: 0.1
+    Duration: 0.2
   - Sprite: {fileID: 7066610435558568244, guid: d88127ae6df204222bf926c71e036dcd,
       type: 3}
     Duration: 0.1

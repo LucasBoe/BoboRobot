@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerAnimationHandler : MonoBehaviour
 {
-    [SerializeField] SpriteAnimation parkAnim, driveAnim, turnAnim, duckDriveAnim, duckParkAnim;
+    [SerializeField] SpriteAnimation parkAnim, driveAnim, turnAnim, duckDriveAnim, duckParkAnim, smashed;
 
     [ShowNonSerializedField] PlayerState currentState = PlayerState.PARK;
     [ShowNonSerializedField] PlayerState overlayState = PlayerState.NONE;
@@ -73,6 +73,7 @@ public class PlayerAnimationHandler : MonoBehaviour
             case PlayerState.TURN: return turnAnim;
             case PlayerState.DUCKDRIVE: return duckDriveAnim;
             case PlayerState.DUCKPARK: return duckParkAnim;
+            case PlayerState.SMASHED: return smashed;
         }
 
         return parkAnim;
@@ -87,5 +88,5 @@ public enum PlayerState
     TURN,
     DUCKDRIVE,
     DUCKPARK,
-
+    SMASHED
 }

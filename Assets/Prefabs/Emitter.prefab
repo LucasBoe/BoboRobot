@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5835524475860642566}
   - component: {fileID: 5835524475860642565}
   - component: {fileID: 5835524475860642564}
+  - component: {fileID: 573971476}
   m_Layer: 0
   m_Name: Emitter
   m_TagString: Untagged
@@ -50,6 +51,8 @@ MonoBehaviour:
   onAnim: {fileID: 11400000, guid: dcf7f26566528478a9c1c014cba6996e, type: 2}
   offAnim: {fileID: 11400000, guid: 49b4eb68455db4e35bbd6b41cd3a3ce7, type: 2}
   stateInput: 010001010100
+  sequenceEditorPrefab: {fileID: 7301952427943166249, guid: d684ec39fb1384ae7acab20bad9e1bdf,
+    type: 3}
 --- !u!212 &5835524475860642565
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -115,3 +118,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingAnimation: {fileID: 11400000, guid: 227f70262c4c342b98d5dfd82c331271, type: 2}
   renderer: {fileID: 5835524475860642565}
+--- !u!61 &573971476
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5835524475860642585}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2, y: 4}
+  m_EdgeRadius: 0

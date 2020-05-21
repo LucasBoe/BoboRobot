@@ -165,4 +165,15 @@ public class PlayerMovement : PlayerBase
     {
         return orientation;
     }
+
+    public override void OnKill()
+    {
+        base.OnKill();
+
+        animator.TryChangeState(PlayerState.SMASHED,asOverlay: true);
+
+        rigidbody.velocity = Vector2.zero;
+
+        Destroy(this);
+    }
 }

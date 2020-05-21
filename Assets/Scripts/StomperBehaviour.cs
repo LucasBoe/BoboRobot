@@ -34,7 +34,7 @@ public class StomperBehaviour : RythmObjBase
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(collision.gameObject);
+            PlayerBase.Kill();
         }
     }
 }

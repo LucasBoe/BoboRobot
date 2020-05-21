@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class PlayerBase : MonoBehaviour
 {
+    public static List<PlayerBase> playerBases = new List<PlayerBase>();
+
     protected Rigidbody2D rigidbody;
     protected SpriteRenderer spriteRenderer;
     protected BoxCollider2D collider;
     protected PlayerAnimationHandler animator;
     protected virtual void Start()
     {
+        playerBases.Add(this);
+
         rigidbody = GetComponent<Rigidbody2D>();
 
         if (rigidbody == null)
@@ -30,5 +34,15 @@ public class PlayerBase : MonoBehaviour
 
         if (animator == null)
             Debug.LogError("No PlayerAnimationHandler found, please add one.");
+    }
+
+    public virtual void OnKill() {
+
+    }
+
+    public static void Kill() {
+        foreach(PlayerBase pb in playerBases) {
+            pb.OnKill();
+        }
     }
 }

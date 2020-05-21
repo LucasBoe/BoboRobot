@@ -163,6 +163,7 @@ MonoBehaviour:
   turnAnim: {fileID: 11400000, guid: 0835f7070bc3c1849a41a9caf55ffc98, type: 2}
   duckDriveAnim: {fileID: 11400000, guid: 919cf6e18ed0f394397589cff40fc224, type: 2}
   duckParkAnim: {fileID: 11400000, guid: ff15d5cb00e2f4940b0896c92140863d, type: 2}
+  smashed: {fileID: 11400000, guid: d94baac0c96734227b7004fbb1eb9f25, type: 2}
 --- !u!114 &1823751371
 MonoBehaviour:
   m_ObjectHideFlags: 0
