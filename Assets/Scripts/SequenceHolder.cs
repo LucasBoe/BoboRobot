@@ -8,6 +8,7 @@ public class SequenceHolder : RythmObjBase
     [SerializeField] List<bool> stateInput;
     [SerializeField] GameObject sequenceEditorPrefab;
     Queue<bool> states;
+    bool isOn;
 
     protected override void Start()
     {
@@ -24,13 +25,25 @@ public class SequenceHolder : RythmObjBase
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void Update()
+    {
+        if (isOn &&Input.GetKeyDown(KeyCode.E))
+            Edit(this);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-                Edit(this);
-            }
+            isOn = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            isOn = false;
         }
     }
 

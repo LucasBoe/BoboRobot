@@ -87,7 +87,7 @@ public class SequenceEditor : MonoBehaviour
         }
 
 
-        if (Input.GetKeyUp(KeyCode.E)) {
+        if (Input.GetKeyDown(KeyCode.E)) {
             sequenceHolder.SetSequence(sequence);
             Time.timeScale = 1;
             Destroy(gameObject);
